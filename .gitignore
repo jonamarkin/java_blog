@@ -18,6 +18,8 @@ target/
 *.iws
 *.iml
 *.ipr
+#Remove application.properties file from git
+!src/main/resources/application.properties
 
 ### NetBeans ###
 /nbproject/private/
