@@ -20,7 +20,7 @@ public class JwtService {
 
   // Extract username from JWT
   public String extractUsername(String token) {
-    return null;
+    return extractClaim(token, Claims::getSubject);
   }
 
   // Extract claims from JWT
@@ -32,15 +32,6 @@ public class JwtService {
         .getBody();
   }
 
-  // Generate token for user
-  public String generateToken(String username) {
-    return null;
-  }
-
-  // Validate token
-  public Boolean validateToken(String token, UserDetails userDetails) {
-    return null;
-  }
 
   // Get signInKey
   private Key getSignInKey() {
