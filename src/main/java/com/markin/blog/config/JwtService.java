@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
+import java.util.Date;
+import java.util.HashMap;import java.util.Map;
 import java.util.function.Function;
 
 @Service
@@ -32,7 +34,6 @@ public class JwtService {
         .getBody();
   }
 
-
   // Get signInKey
   private Key getSignInKey() {
     byte[] apiKeySecretBytes = Decoders.BASE64.decode(SECRET_KEY);
@@ -44,4 +45,36 @@ public class JwtService {
     final Claims claims = extractAllClaims(token);
     return claimsResolver.apply(claims);
   }
+
+  // Generate JWT
+  public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+    return Jwts.builder()
+        .setClaims(extraClaims)
+        .setSubject(userDetails.getUsername())
+        .setIssuedAt(new Date(System.currentTimeMillis()))
+        .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 5))
+        .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+        .compact();
+  }
+
+  //Generate JWT without extraClaims
+    public String generateToken(UserDetails userDetails) {
+        return generateToken(new HashMap<>(), userDetails);
+    }
+
+    // Validate JWT
+    public Boolean validateToken(String token, UserDetails userDetails) {
+        final String username = extractUsername(token);
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+    // Check if token is expired
+    private Boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
+    // Extract expiration date from JWT
+    private Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
 }
