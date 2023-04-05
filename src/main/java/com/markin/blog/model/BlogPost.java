@@ -20,7 +20,4 @@ public class BlogPost {
 
   @DBRef private User author;
 
-  @DBRef private List<Category> categories = new ArrayList<>();
-
-  @DBRef private List<Comment> comments = new ArrayList<>();
 }
