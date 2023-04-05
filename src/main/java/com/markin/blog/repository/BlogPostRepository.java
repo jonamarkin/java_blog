@@ -8,5 +8,19 @@ import java.util.List;
 
 @Repository
 public interface BlogPostRepository extends MongoRepository<BlogPost, String> {
-    List<BlogPost> findByAuthor(User author);
+
+    //Find all posts by author
+    List<BlogPost> findBlogPostByAuthor(User author);
+
+    //Find all posts by title
+    List<BlogPost> findBlogPostByTitle(String title);
+
+    //Find post by ID only
+    BlogPost findBlogPostById(String id);
+
+    //Update title or content
+    BlogPost updateBlogPostById(String id, String title, String content);
+
+    //Delete post by ID only
+    BlogPost deleteBlogPostById(String id);
 }
