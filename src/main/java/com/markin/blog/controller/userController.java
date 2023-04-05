@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/users")
 @Validated
 @Slf4j
-public class UserController {
+public class userController {
   // User signup
   @PostMapping("/signup")
   public void signup() {

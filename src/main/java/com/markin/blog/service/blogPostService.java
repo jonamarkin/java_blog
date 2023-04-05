@@ -3,7 +3,7 @@ package com.markin.blog.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BlogPostService {
+public class blogPostService {
     //TODO: Implement BlogPostService
 
     //Create a new post
