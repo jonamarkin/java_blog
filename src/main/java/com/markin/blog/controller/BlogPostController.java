@@ -1,8 +1,13 @@
 package com.markin.blog.controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/v1/posts")
+@RestController
+@RequestMapping("/api/v1/posts")
+@Validated
+@Slf4j
 public class BlogPostController {
     //Create a new post
     @PostMapping("/create")
@@ -10,7 +15,7 @@ public class BlogPostController {
         //TODO
     }
     //Update a post
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public void update() {
         //TODO
     }
@@ -20,7 +25,7 @@ public class BlogPostController {
         //TODO
     }
     //Get a post
-    @GetMapping("/view")
+    @GetMapping("/view/{id}")
     public void get() {
         //TODO
     }
