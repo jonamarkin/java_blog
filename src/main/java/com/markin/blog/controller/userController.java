@@ -9,21 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @Slf4j
 public class userController {
-  // User signup
-  @PostMapping("/signup")
-  public void signup() {
-    // TODO
-  }
-  // User login
-  @PostMapping("/login")
-  public void login() {
-    // TODO
-  }
-  // User logout
-  @PostMapping("/logout")
-  public void logout() {
-    // TODO
-  }
+
   // User update
   @PutMapping("/profile/update")
   public void update() {
@@ -35,4 +21,17 @@ public class userController {
   public void view() {
     // TODO
   }
+
+    // View all users
+    @GetMapping("/view/all")
+    public void getAll() {
+        // TODO
+    }
+
+    //View a user
+    @GetMapping("/view/{id}")
+    public void get() {
+        // TODO
+    }
+
 }
