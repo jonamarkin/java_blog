@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Document(collection = "blogposts")
 @Data
-public class blogPost {
+public class BlogPost {
   @Id private String id;
 
   private String title;
@@ -19,6 +19,6 @@ public class blogPost {
 
   private Date lastModifiedDate = new Date();
 
-  @DBRef private user author;
+  @DBRef private User author;
 
 }

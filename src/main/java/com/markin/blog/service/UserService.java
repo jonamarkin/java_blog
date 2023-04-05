@@ -1,15 +1,16 @@
 package com.markin.blog.service;
 
-import com.markin.blog.model.user;
+import com.markin.blog.model.User;
+import com.markin.blog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class userService {
-  @Autowired private com.markin.blog.repository.userRepository userRepository;
+public class UserService {
+  @Autowired private UserRepository userRepository;
 
   // Register a new user
-  public void register(user user) {
+  public void register(User user) {
     //Register a new user
     userRepository.save(user);
 
@@ -19,7 +20,7 @@ public class userService {
   public void login() {
     // Login a user
     //Check if user exists
-    user user = userRepository.findByUsername("username").get();
+    User user = userRepository.findByUsername("username").get();
     //Check if password is correct
     //Generate JWT
 

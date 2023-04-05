@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/users")
 @Validated
 @Slf4j
-public class userController {
+public class UserController {
 
   // User update
   @PutMapping("/profile/update")

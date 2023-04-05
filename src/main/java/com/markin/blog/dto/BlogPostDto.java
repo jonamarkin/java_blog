@@ -3,7 +3,7 @@ package com.markin.blog.dto;
 import lombok.Data;
 
 @Data
-public class blogPostDto {
+public class BlogPostDto {
     private String title;
     private String content;
     private String category;

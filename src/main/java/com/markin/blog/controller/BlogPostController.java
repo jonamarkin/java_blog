@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/posts")
 @Validated
 @Slf4j
-public class blogPostController {
+public class BlogPostController {
     //Create a new post
     @PostMapping("/create")
     public void create() {
